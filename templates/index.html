@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>CupCakes</h1>
+
+<div class="row pets-listing">
+
+  <div class="col-3">
+    <ol id="cupcakelist">
+    {% for cupcake in cupcakes %} 
+    <li > {{ cupcake.flavor }}  <a href="/"  data-id ="{{cupcake.id}}" onclick="Delete(event)">Delete</a>  </li>
+         
+     {% endfor %}
+    </ol>
+</div>
+<br>
+<div class="container mt-5">
+  <h2>Cupcake Form</h2>
+  
+  <form id="cupcakeForm">
+      <div class="form-group">
+          <label for="flavor">Flavor:</label>
+          <input type="text" class="form-control" id="flavor" name="flavor" required>
+      </div>
+
+      <div class="form-group">
+          <label for="image">Image:</label>
+          <input type="text" class="form-control" id="image" name="image" required>
+      </div>
+
+      <div class="form-group">
+          <label for="rating">Rating:</label>
+          <input type="number" class="form-control" id="rating" name="rating" step="0.1" min="0" max="5" required>
+      </div>
+
+      <div class="form-group">
+          <label for="size">Size:</label>
+          <select class="form-control" id="size" name="size" required>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+          </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add a Cup cake</button>
+  </form>
+</div>
+
+{% endblock %}
